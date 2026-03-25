@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<!-- V3 Elite Cyberpunk | Accent:#818cf8 | GitHub→Vercel | AI Website Factory -->
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirage Looks | Elevating Your Vision to Reality</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"]
+                    },
+                    colors: {
+                        brand: "#818cf8",
+                        dark: "#050505",
+                        panel: "#080808"
+                    },
+                    animation: {
+                        "glow-pulse": "glow-pulse 4s ease-in-out infinite",
+                        "scan": "scan 4s linear infinite",
+                        "float": "float 6s ease-in-out infinite"
+                    },
+                    keyframes: {
+                        "glow-pulse": {
+                            "0%, 100%": { opacity: "0.2" },
+                            "50%": { opacity: "0.5" }
+                        },
+                        "scan": {
+                            "0%": { transform: "translateY(-100%)" },
+                            "100%": { transform: "translateY(100vh)" }
+                        },
+                        "float": {
+                            "0%, 100%": { transform: "translateY(0)" },
+                            "50%": { transform: "translateY(-20px)" }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #050505; color: #a3a3a3; }
+        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .heading-xl { font-weight: 900; text-transform: uppercase; letter-spacing: 0.2em; color: white; }
+        .btn-primary { 
+            background: #818cf8; 
+            color: black; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            box-shadow: 0 0 30px rgba(129, 140, 248, 0.4); 
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 50px rgba(129, 140, 248, 0.6); }
+        .btn-ghost { border: 1px solid rgba(255, 255, 255, 0.2); color: white; transition: all 0.3s ease; }
+        .btn-ghost:hover { background: rgba(255,255,255,0.05); border-color: #818cf8; color: #818cf8; }
+        .glow-orb { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .custom-cursor { width: 400px; height: 400px; background: rgba(129, 140, 248, 0.08); position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 1; transform: translate(-50%, -50%); transition: transform 0.1s ease-out; }
+    </style>
+</head>
+<body class="overflow-x-hidden selection:bg-brand selection:text-black">
+
+    <div class="custom-cursor hidden lg:block" id="cursor"></div>
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full z-50 bg-[#050505]/80 backdrop-blur-xl border-b border-white/5 h-20 flex items-center">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-2xl font-black tracking-tighter text-white">
+                <span class="text-brand">MIRAGE</span> LOOKS
+            </div>
+            <div class="hidden md:flex space-x-10 text-[10px] uppercase tracking-[0.3em] font-bold">
+                <a href="#services" class="hover:text-brand transition">Services</a>
+                <a href="#system" class="hover:text-brand transition">System</a>
+                <a href="#about" class="hover:text-brand transition">About</a>
+                <a href="#gallery" class="hover:text-brand transition">Gallery</a>
+                <a href="#contact" class="hover:text-brand transition">Contact</a>
+            </div>
+            <a href="https://wa.me/919506610020" target="_blank" class="hidden md:block px-6 py-2 rounded-full border border-brand text-brand text-[10px] font-black uppercase tracking-widest hover:bg-brand hover:text-black transition">
+                Book Now
+            </a>
+            <button class="md:hidden text-white" id="menu-toggle">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-dark hidden flex flex-col items-center justify-center space-y-8 text-xl font-black uppercase tracking-widest text-white">
+        <a href="#services" class="mobile-link">Services</a>
+        <a href="#system" class="mobile-link">System</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+        <a href="https://wa.me/919506610020" target="_blank" class="text-brand">WhatsApp</a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="glow-orb w-[600px] h-[600px] -top-40 -left-40 bg-brand/10 animate-glow-pulse"></div>
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 pointer-events-none"></div>
+        <div class="absolute inset-0 h-screen w-full overflow-hidden pointer-events-none">
+            <div class="w-full h-[2px] bg-brand/20 animate-scan"></div>
+        </div>
+
+        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="reveal">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-brand/30 bg-brand/5 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
+                    <span class="text-[10px] font-bold text-brand uppercase tracking-widest">Node Active: Kanpur Core</span>
+                </div>
+                <h1 class="text-6xl md:text-8xl heading-xl leading-tight mb-8">
+                    Elevating Your <span class="text-brand">Vision</span> to Reality
+                </h1>
+                <p class="text-lg text-neutral-400 mb-10 max-w-xl leading-relaxed">
+                    Premium business solutions engineered for the futuristic landscape. We bridge the gap between abstract concepts and operational excellence.
+                </p>
+                <div class="flex flex-wrap gap-4 mb-16">
+                    <a href="https://wa.me/919506610020" target="_blank" class="btn-primary px-8 py-4 rounded-full text-xs">Initialize Contact</a>
+                    <a href="#services" class="btn-ghost px-8 py-4 rounded-full text-xs font-black uppercase tracking-widest">View Services</a>
+                </div>
+                <div class="grid grid-cols-3 gap-8">
+                    <div>
+                        <div class="text-3xl font-black text-white" data-count="4.5">0</div>
+                        <div class="text-[10px] uppercase tracking-widest text-brand font-bold">Rating</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-black text-white" data-count="135">0</div>
+                        <div class="text-[10px] uppercase tracking-widest text-brand font-bold">Reviews</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-black text-white" data-count="6">0</div>
+                        <div class="text-[10px] uppercase tracking-widest text-brand font-bold">Services</div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative reveal delay-200">
+                <div class="relative rounded-[32px] overflow-hidden border border-white/10 group">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1400&q=85" alt="Office" class="w-full h-[600px] object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent"></div>
+                </div>
+                <div class="absolute -bottom-6 -left-6 glass p-6 rounded-3xl animate-float">
+                    <div class="text-brand font-black text-2xl">99.9%</div>
+                    <div class="text-[8px] uppercase tracking-widest font-bold">Operational Uptime</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20 reveal">
+                <h2 class="heading-xl text-4xl mb-4">Our <span class="text-brand">Expertise</span></h2>
+                <div class="w-24 h-1 bg-brand mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="glass p-10 rounded-3xl border-t-2 border-t-brand hover:bg-white/10 transition-all duration-500 reveal">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-4xl">⚡</span>
+                        <span class="text-[10px] px-3 py-1 bg-brand text-black font-black rounded-full">POPULAR</span>
+                    </div>
+                    <h3 class="text-xl font-black text-white uppercase tracking-wider mb-4">Strategic Planning</h3>
+                    <p class="text-sm leading-relaxed mb-6">Professional Strategic Planning powered by cutting-edge technology and data analytics.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="glass p-10 rounded-3xl border-t-2 border-t-brand hover:bg-white/10 transition-all duration-500 reveal delay-100">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-4xl">🔥</span>
+                    </div>
+                    <h3 class="text-xl font-black text-white uppercase tracking-wider mb-4">Market Research</h3>
+                    <p class="text-sm leading-relaxed mb-6">Professional Market Research powered by cutting-edge technology and consumer insights.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="glass p-10 rounded-3xl border-t-2 border-t-brand hover:bg-white/10 transition-all duration-500 reveal delay-200">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-4xl">💎</span>
+                    </div>
+                    <h3 class="text-xl font-black text-white uppercase tracking-wider mb-4">Digital Consulting</h3>
+                    <p class="text-sm leading-relaxed mb-6">Professional Digital Consulting powered by cutting-edge technology infrastructure.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="glass p-10 rounded-3xl border-t-2 border-t-brand hover:bg-white/10 transition-all duration-500 reveal delay-300">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-4xl">🚀</span>
+                    </div>
+                    <h3 class="text-xl font-black text-white uppercase tracking-wider mb-4">Brand Identity</h3>
+                    <p class="text-sm leading-relaxed mb-6">Professional Brand Identity powered by cutting-edge technology and creative design.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="glass p-10 rounded-3xl border-t-2 border-t-brand hover:bg-white/10 transition-all duration-500 reveal delay-400">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-4xl">🛡️</span>
+                    </div>
+                    <h3 class="text-xl font-black text-white uppercase tracking-wider mb-4">Project Management</h3>
+                    <p class="text-sm leading-relaxed mb-6">Professional Project Management powered by cutting-edge technology frameworks.</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="glass p-10 rounded-3xl border-t-2 border-t-brand hover:bg-white/10 transition-all duration-500 reveal delay-500">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-4xl">⚙️</span>
+                    </div>
+                    <h3 class="text-xl font-black text-white uppercase tracking-wider mb-4">Business Growth</h3>
+                    <p class="text-sm leading-relaxed mb-6">Professional Business Growth powered by cutting-edge technology and scaling strategies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SYSTEM PANEL -->
+    <section id="system" class="py-24 bg-panel relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="glass p-8 md:p-12 rounded-[40px] border-brand/20 relative overflow-hidden">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 border-b border-white/10 pb-8">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-2">
+                            <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                            <h2 class="text-2xl font-black text-white uppercase tracking-widest">System Operational</h2>
+                        </div>
+                        <p class="font-mono text-xs text-brand">NODE MIRAGE_LOOKS | IP: 182.64.xx.xx</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 font-mono text-[10px] text-neutral-500">TIMESTAMP: 2026.05.12_08:42:01</div>
+                </div>
+                
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="reveal">
+                        <div class="text-[10px] text-neutral-500 font-bold uppercase mb-2">Clients Served</div>
+                        <div class="text-4xl font-black text-brand tracking-tighter" data-count="1350">0</div>
+                    </div>
+                    <div class="reveal delay-100">
+                        <div class="text-[10px] text-neutral-500 font-bold uppercase mb-2">Ops / Day</div>
+                        <div class="text-4xl font-black text-green-500 tracking-tighter" data-count="35">0</div>
+                    </div>
+                    <div class="reveal delay-200">
+                        <div class="text-[10px] text-neutral-500 font-bold uppercase mb-2">Satisfaction</div>
+                        <div class="text-4xl font-black text-green-500 tracking-tighter" data-count="98.5">0</div>
+                    </div>
+                    <div class="reveal delay-300">
+                        <div class="text-[10px] text-neutral-500 font-bold uppercase mb-2">System Uptime</div>
+                        <div class="text-4xl font-black text-green-500 tracking-tighter" data-count="99.97">0</div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 p-4 bg-black/40 rounded-xl font-mono text-[10px] text-neutral-500 leading-relaxed border border-white/5">
+                    <p>> initializing system_diagnostics...</p>
+                    <p>> encryption_layers: active</p>
+                    <p>> vision_processing: optimal</p>
+                    <p>> connection_established: MIRAGE_HUB_KNP</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24">
+        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+            <div class="reveal">
+                <h2 class="heading-xl text-4xl mb-8">Architecting <span class="text-brand">Future</span> Solutions</h2>
+                <p class="text-lg mb-8 leading-relaxed">
+                    Based in the heart of Kanpur, Mirage Looks is a premier professional solutions agency. We specialize in transforming complex business challenges into streamlined success stories.
+                </p>
+                <div class="grid grid-cols-2 gap-8 mb-10">
+                    <div class="border-l-2 border-brand pl-4">
+                        <div class="text-2xl font-black text-white" data-count="4.5">0</div>
+                        <div class="text-[10px] uppercase font-bold text-neutral-500">Global Rating</div>
+                    </div>
+                    <div class="border-l-2 border-brand pl-4">
+                        <div class="text-2xl font-black text-white" data-count="135">0</div>
+                        <div class="text-[10px] uppercase font-bold text-neutral-500">Active Clients</div>
+                    </div>
+                    <div class="border-l-2 border-brand pl-4">
+                        <div class="text-2xl font-black text-white" data-count="6">0</div>
+                        <div class="text-[10px] uppercase font-bold text-neutral-500">Expert Services</div>
+                    </div>
+                    <div class="border-l-2 border-brand pl-4">
+                        <div class="text-2xl font-black text-white">24/7</div>
+                        <div class="text-[10px] uppercase font-bold text-neutral-500">Support Ops</div>
+                    </div>
+                </div>
+                <a href="https://wa.me/919506610020" target="_blank" class="btn-primary inline-block px-10 py-4 rounded-full text-xs">Read Dossier</a>
+            </div>
+            <div class="relative reveal delay-200">
+                <div class="glow-orb w-[400px] h-[400px] bg-brand/10 -z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=85" alt="Mirage Office" class="rounded-[40px] shadow-2xl border border-white/10">
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="py-24 bg-panel/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20 reveal">
+                <h2 class="heading-xl text-4xl mb-4 text-brand">Verification</h2>
+                <p class="text-xs tracking-widest uppercase">Client Feedback Logs</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass p-10 rounded-3xl border-l-4 border-brand reveal">
+                    <p class="text-white italic mb-8 text-lg">"Mirage Looks delivered beyond expectations. The strategic planning session was a game changer."</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-brand/20 rounded-full flex items-center justify-center font-black text-brand">RS</div>
+                        <div>
+                            <div class="text-white font-black uppercase text-xs">Rahul S.</div>
+                            <div class="text-[10px] text-brand uppercase font-bold tracking-widest">Verified Client</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass p-10 rounded-3xl border-l-4 border-brand reveal delay-100">
+                    <p class="text-white italic mb-8 text-lg">"Precision and results. Best decision we made for our brand identity this year."</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-brand/20 rounded-full flex items-center justify-center font-black text-brand">PM</div>
+                        <div>
+                            <div class="text-white font-black uppercase text-xs">Priya M.</div>
+                            <div class="text-[10px] text-brand uppercase font-bold tracking-widest">Regular Client</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass p-10 rounded-3xl border-l-4 border-brand reveal delay-200">
+                    <p class="text-white italic mb-8 text-lg">"World-class service. Zero compromise on quality and timeline. Highly recommended."</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-brand/20 rounded-full flex items-center justify-center font-black text-brand">AV</div>
+                        <div>
+                            <div class="text-white font-black uppercase text-xs">Amit V.</div>
+                            <div class="text-[10px] text-brand uppercase font-bold tracking-widest">Loyal Client</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="py-24 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="overflow-hidden rounded-3xl h-[320px] reveal">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=85" class="w-full h-full object-cover hover:scale-110 transition duration-700 cursor-crosshair">
+                </div>
+                <div class="overflow-hidden rounded-3xl h-[320px] reveal delay-100">
+                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=85" class="w-full h-full object-cover hover:scale-110 transition duration-700 cursor-crosshair">
+                </div>
+                <div class="overflow-hidden rounded-3xl h-[320px] reveal delay-200">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=85" class="w-full h-full object-cover hover:scale-110 transition duration-700 cursor-crosshair">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta" class="py-32 relative overflow-hidden">
+        <div class="glow-orb w-[800px] h-[800px] bg-brand/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="container mx-auto px-6 text-center relative z-10 reveal">
+            <h2 class="text-5xl md:text-7xl heading-xl mb-12">Ready to <span class="text-brand">Start?</span></h2>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                <a href="https://wa.me/919506610020" target="_blank" class="btn-primary px-12 py-6 rounded-full text-sm">WhatsApp Protocol</a>
+                <a href="tel:+919506610020" class="btn-ghost px-12 py-6 rounded-full text-sm font-black uppercase tracking-widest">Voice Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-24 bg-panel">
+        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12">
+            <div class="space-y-6 reveal">
+                <div class="glass p-8 rounded-3xl">
+                    <div class="text-[10px] text-brand font-black uppercase tracking-widest mb-2">Location</div>
+                    <div class="text-white text-lg font-bold">Naubasta, Kanpur, UP 208021, India</div>
+                </div>
+                <div class="glass p-8 rounded-3xl">
+                    <div class="text-[10px] text-brand font-black uppercase tracking-widest mb-2">Inquiries</div>
+                    <div class="text-white text-lg font-bold">+91 95066 10020</div>
+                </div>
+                <div class="glass p-8 rounded-3xl">
+                    <div class="text-[10px] text-brand font-black uppercase tracking-widest mb-2">Working Hours</div>
+                    <div class="text-white text-lg font-bold">MON - SAT: 09:00 - 18:00</div>
+                </div>
+            </div>
+            <div class="rounded-[40px] overflow-hidden border border-white/10 grayscale contrast-125 reveal delay-200">
+                <iframe 
+                    src="https://maps.google.com/maps?q=C829%2BGHP%2C%20Naubasta%2C%20Kanpur%2C%20Uttar%20Pradesh%20208021%2C%20India&output=embed" 
+                    width="100%" height="100%" style="border:0; min-height: 400px;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-20 bg-[#030303] border-t border-white/5">
+        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-12 items-center">
+            <div class="text-3xl font-black text-white">
+                <span class="text-brand">MIRAGE</span> LOOKS
+            </div>
+            <div class="flex justify-center space-x-8 text-[10px] uppercase tracking-widest font-bold">
+                <a href="#" class="hover:text-brand">Twitter</a>
+                <a href="#" class="hover:text-brand">Instagram</a>
+                <a href="#" class="hover:text-brand">LinkedIn</a>
+            </div>
+            <div class="text-right text-[10px] uppercase tracking-widest font-bold text-neutral-600">
+                &copy; 2026 Mirage Looks. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Reveal animation
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Mobile Menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // Counter Animation
+        const countElements = document.querySelectorAll('[data-count]');
+        const countObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseFloat(entry.target.getAttribute('data-count'));
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+                    
+                    const updateCount = () => {
+                        current += step;
+                        if (current < target) {
+                            entry.target.innerText = target % 1 === 0 ? Math.floor(current) : current.toFixed(1);
+                            requestAnimationFrame(updateCount);
+                        } else {
+                            entry.target.innerText = target;
+                        }
+                    };
+                    updateCount();
+                    countObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        countElements.forEach(el => countObserver.observe(el));
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-[#050505]/95', 'py-4');
+                nav.classList.remove('py-0');
+            } else {
+                nav.classList.remove('bg-[#050505]/95', 'py-4');
+                nav.classList.add('py-0');
+            }
+        });
+
+        // Custom Cursor Lerp
+        const cursor = document.getElementById('cursor');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            let dx = mouseX - cursorX;
+            let dy = mouseY - cursorY;
+            cursorX += dx * 0.1;
+            cursorY += dy * 0.1;
+            cursor.style.left = `${cursorX}px`;
+            cursor.style.top = `${cursorY}px`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+    </script>
+</body>
+</html>
